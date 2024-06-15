@@ -9,12 +9,12 @@
 <div class="card shadow mb-4" style="width: 60%;">
     <div class="card-header py-3">
         <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
-        <a href="{{route('home')}}" class="btn btn-warning btn-icon-split"  style="float: right;">
+        <!-- <a href="{{route('home')}}" class="btn btn-warning btn-icon-split"  style="float: right;">
             <span class="icon text-white-50">
                 <i class="fas fa-arrow-left"></i>
             </span>
             <span class="text">Kembali</span>
-        </a>
+        </a> -->
     </div>
     <div class="card-body">
         <form enctype="multipart/form-data" action="{{route('profile.update')}}" method="POST">

@@ -47,9 +47,9 @@
                                 <td align="center">
                                     <a href="{{route('data-peta.show', base64_encode($pt->id))}}" class="btn btn-info btn-circle btn-sm" title="Detail"><i class="fa fa-list"></i></a>
                                     <a class="btn btn-warning btn-circle btn-sm text-white" href="{{route('data-peta.edit', base64_encode($pt->id))}}"  title="Edit"><i class="fa fa-edit"></i></a>
-                                    <button type="button" onclick="hapusData('{{base64_encode($pt->id)}}')" class="btn btn-danger btn-circle btn-sm text-white" title="Hapus"><i class="fa fa-trash"></i></button>
+                                    <button type="button" onclick="hapusData('{{$pt->id}}')" class="btn btn-danger btn-circle btn-sm text-white" title="Hapus"><i class="fa fa-trash"></i></button>
 
-                                    <form id="form-hapus-{{base64_encode($pt->id)}}" class="d-inline" action="{{route('data-peta.destroy', base64_encode($pt->id))}}" method="POST">
+                                    <form id="form-hapus-{{$pt->id}}" class="d-inline" action="{{route('data-peta.destroy', base64_encode($pt->id))}}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="DELETE">
                                     </form>

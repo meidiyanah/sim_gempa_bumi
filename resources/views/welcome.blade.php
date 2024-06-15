@@ -13,9 +13,10 @@
 
     <link rel="icon" type="image/png" href="{{ asset('/images/logo.png') }}">
 
-    <title>SIMULASI JANGKAUAN GEMPA BUMI</title><!--SIJAPAI-->
+    <title>SIMULATOR JANGKAUAN GEMPA BUMI</title><!--SIJAPAI-->
     <link rel="stylesheet" href="{{asset('polished/polished.min.css')}}">
     <link rel="stylesheet" href="{{asset('polished/iconic/css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}">
     <style>
         body{
             background-image: url("images/bg-min4.jpg");
@@ -25,8 +26,20 @@
             background-size: cover;
         }
         .container{
-            background: rgba(0,0,0,.3);
+            background: rgba(0,0,0,.5);
             height:100%;
+        }
+
+        .btn-info {
+            /* background: linear-gradient(to bottom, #00ced8, #0074c4) !important; */
+            /* background: linear-gradient(to bottom, #8eb5ff, #1d3a6e) !important; */
+            background: white !important;
+        }
+
+        .btn-info:active, .btn-info:hover, .btn-info:focus {
+            /* background: linear-gradient(to bottom, #0074c4, #00ced8) !important; */
+            /* background: linear-gradient(to bottom, #1d3a6e, #8eb5ff) !important; */
+            background: #8eb5ff !important;
         }
     </style>
     <script type="text/javascript">
@@ -43,57 +56,69 @@
                 <div class="row pl-3 pt-2 mb-4">
                     <div class="col-12">
                     <center>
-                        <!-- <img src="{{ url('images/logo.png')}}" width=100 alt=""><br><br> -->
-                        <h1 style="color:#ffffff; font-weight: bolder;">DASHBOARD<br>SIMULASI JANGKAUAN GEMPA BUMI </h1>
+                        <h1 style="color:#ffffff; font-weight: bolder;">DASHBOARD<br>SIMULATOR JANGKAUAN GEMPA BUMI </h1>
                     </center>
                     </div>
                 </div><br><br>
 
                 <!-- START INFO BOX WITH MORE INFO -->
                 <div class="row pl-3 pt-2 mb-4">
-            
-                    <div class="col-lg-6 col-md-6 mb-2 col-sm-6">
+                    <div class="col-lg-4 col-md-6 mb-2 col-sm-6">
                         <div class="card border-0 shadow-sm bg-secondary text-dark">
-                            <div class="card-body">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <center>
-                                            <h4>SIMULASI</h4>
-                                            <img src="{{ url('images/icon-black.png')}}" alt="" width="200px">
-                                        </center>
+                            <a href="{{ url('/login') }}">
+                                <div class="card-body">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <center>
+                                                <h4 style="color: black !important;">LOGIN</h4>
+                                                <i class="fa fa-sign-in" style="font-size: 8em; color: black;"></i>
+                                            </center>
+                                        </div>
                                     </div>
                                 </div>
+                            </a>
+                            <div class="card-footer border-0 text-center p-1 bg-dark-lighter text-white">
+                                Masuk <span class="oi oi-arrow-circle-right"></span>
                             </div>
-                            <div class="card-footer border-0 text-center p-1 bg-dark-lighter">
-                                @if(isset(Auth::user()->id))
-                                    <a href="{{ url('/simulasi') }}" class="text-secondary">
-                                        Masuk <span class="oi oi-arrow-circle-right"></span>
-                                    </a>
-                                @else
-                                    <a href="{{ url('/login') }}" class="text-secondary">
-                                        Login <span class="oi oi-arrow-circle-right"></span>
-                                    </a>
-                                @endif
+                        </div>
+                    </div>
+            
+                    <div class="col-lg-4 col-md-6 mb-2 col-sm-6">
+                        <div class="card border-0 shadow-sm bg-secondary text-dark">
+                            <a href="{{ url('/register') }}">
+                                <div class="card-body">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <center>
+                                                <h4 style="color: black !important;">REGISTER</h4>
+                                                <i class="fa fa-user-plus" style="font-size: 8em; color: black;"></i>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="card-footer border-0 text-center p-1 bg-dark-lighter text-white">
+                                Masuk <span class="oi oi-arrow-circle-right"></span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-6 col-md-6 mb-2 col-sm-6">
+                    <div class="col-lg-4 col-md-6 mb-2 col-sm-6">
                         <div class="card border-0 shadow-sm bg-secondary text-dark">
-                            <div class="card-body">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <center>
-                                            <h4>USER MANUAL</h4>
-                                            <img src="{{ url('images/timesheet.png')}}" alt="" width="200px">
-                                        </center>
+                            <a href="{{ url('/user-manual') }}">
+                                <div class="card-body">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <center>
+                                                <h4 style="color: black !important;">USER MANUAL</h4>
+                                                <i class="fa fa-book" style="font-size: 8em; color: black;"></i>
+                                            </center>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer border-0 text-center p-1 bg-dark-lighter">
-                                <a href="{{ url('/user-manual') }}" class="text-secondary">
-                                    Lihat  <span class="oi oi-arrow-circle-right"></span>
-                                </a>
+                            </a>
+                            <div class="card-footer border-0 text-center p-1 bg-dark-lighter text-white">
+                                Masuk <span class="oi oi-arrow-circle-right"></span>
                             </div>
                         </div>
                     </div>

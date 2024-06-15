@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Hash;
+use App\Models\Peta;
+use App\Models\Kota;
 use App\Models\User;
+use App\Models\Simulasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +30,38 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('back-end.dashboard');
+        date_default_timezone_set('Asia/Bangkok');
+
+        if(Auth::user()->jenis_user == 1){//ADMIN MENAMPILKAN SEMUA DATA SIMULASI
+            $dataSimulasi = Simulasi::orderBy('id', 'ASC')->count();
+            $dataPeta = Peta::orderBy('id', 'ASC')->count();
+            $dataKota = Kota::orderBy('id', 'ASC')->count();
+
+            $dataSimulasiMonth = 0;
+            $dataSimulasiYear = 0;
+        }else{//USER MENAMPILKAN DATA SIMULASI MILIK DIRINYA SENDIRI
+            //KOSONG
+            $dataPeta = 0;
+            $dataKota = 0;
+            $dataSimulasi = Simulasi::where('id_user', Auth::user()->id)->orderBy('id', 'ASC')->count();
+            //datasimulasi bulan ini
+            $dataSimulasiMonth = Simulasi::whereMonth('created_at', '=', date('m'))->where('id_user', Auth::user()->id)->orderBy('id', 'ASC')->count();
+            //datasimulasi tahun ini
+            $dataSimulasiYear = Simulasi::whereYear('created_at', '=', date('Y'))->where('id_user', Auth::user()->id)->orderBy('id', 'ASC')->count();
+        }
+
+        $dataMonth = [];
+        for ($i=1; $i <= 12; $i++) { 
+            $month = ($i < 10) ? '0'.$i:$i;
+            $count = Simulasi::whereMonth('created_at', '=', $month);
+            if(Auth::user()->jenis_user == 2){
+                $count = $count->where('id_user', Auth::user()->id);
+            }
+            $count = $count->count();
+            $dataMonth[$i] = $count;
+        }
+
+        return view('back-end.dashboard', compact('dataSimulasi', 'dataPeta', 'dataKota', 'dataMonth', 'dataSimulasiMonth', 'dataSimulasiYear'));
     }
 
     public function profile()
@@ -47,7 +81,7 @@ class HomeController extends Controller
             ]);
         }
 
-        $id = $id = Auth::user()->id;
+        $id = Auth::user()->id;
 
         $new_user = [];
         $new_user['name'] = $request->get('name');
@@ -89,7 +123,7 @@ class HomeController extends Controller
             "confirm_password" => "required|same:password"
         ]);
 
-        $id = $id = Auth::user()->id;
+        $id = Auth::user()->id;
 
         $new_user = [];
         $new_user['password'] = Hash::make($request->get('password'));

@@ -9,7 +9,7 @@
 
     <link rel="icon" type="image/png" href="{{ asset('/images/logo.png') }}">
 
-    <title>SIMULASI JANGKAUAN GEMPA BUMI</title><!--SIJAPAI-->
+    <title>SIMULATOR JANGKAUAN GEMPA BUMI</title><!--SIJAPAI-->
     <link rel="stylesheet" href="{{asset('polished/polished.min.css')}}">
     <link rel="stylesheet" href="{{asset('polished/iconic/css/open-iconic-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/font-awesome/css/font-awesome.min.css')}}">
@@ -22,7 +22,7 @@
             background-size: cover;
         }
         .container{
-            background: rgba(0,0,0,.3);
+            background: rgba(0,0,0,.35);
             height:100%;
         }
         #app {

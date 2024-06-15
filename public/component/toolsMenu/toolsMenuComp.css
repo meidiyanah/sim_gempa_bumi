@@ -1,0 +1,67 @@
+.toolsMenu-main{
+    margin-left: 11px !important;
+    transition: .5s;
+    width: 1.9rem;
+    /* height: rem; */
+    /* background-color: rgb(103, 134, 161); */
+    background-color: transparent;
+    color: rgb(26, 235, 253);
+    border-radius: 3px;
+    text-align: center;
+    /* box-shadow: 1.5px 1.5px 6px #6c6c6c, -1px -1px 2px #818080; */
+    justify-content: space-between;
+}
+
+/* .openMenuTools {
+    width: 8rem !important;
+} */
+
+.openMenuScroll {
+    width: 10rem !important;
+    background: red;
+}
+
+
+.toolsMenu-main .menuUtama {
+    overflow: hidden;
+    /* display: flex; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.toolsMenu-main .btn-arrow {
+    border: 2px solid rgb(59 85 108);
+    cursor: pointer;
+    width: 2rem;
+}
+
+.toolsMenu-main .rotateArrow {
+    transition: .3s;
+    transform: rotate(180deg);
+}
+
+.toolsMenu-main .btn-menu {
+    border: 2px solid rgb(129, 148, 165);
+    cursor: pointer;
+    padding: 2px;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    /* border-radius: 3px; */
+}
+
+.toolsMenu-main .btn-arrow:hover{
+    background-color: rgb(73, 105, 133);
+}
+
+.toolsMenu-main .btn-menu:hover{
+    background-color: rgb(73, 105, 133);
+    transform: scale(1.3);
+}
+
+.img-tools {
+    background-repeat: no-repeat;
+    background-size: 300px 30px;
+    background-clip: padding-box;
+}

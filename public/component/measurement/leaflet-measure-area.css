@@ -1,0 +1,278 @@
+.leaflet-measure-area h6,
+.leaflet-measure-area-resultpopup h6 {
+	margin: 0 0 12px;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.leaflet-measure-area hr,
+.leaflet-measure-area-resultpopup hr {
+	margin-top: 2px !important;
+	margin-bottom: 0px !important;
+}
+
+.leaflet-measure-area p,
+.leaflet-measure-area-resultpopup p {
+	margin: 10px 0 0;
+	line-height: 1.5em
+}
+
+.leaflet-measure-area p:first-child,
+.leaflet-measure-area-resultpopup p:first-child {
+	margin-top: 0
+}
+
+.leaflet-measure-area .tasks,
+.leaflet-measure-area-resultpopup .tasks {
+	margin: 12px 0 0;
+	padding: 10px 0 0;
+	border-top: 1px solid #ddd;
+	text-align: right;
+	list-style: none;
+	list-style-image: none
+}
+
+.leaflet-measure-area .tasks li,
+.leaflet-measure-area-resultpopup .tasks li {
+	display: inline;
+	margin: 0 10px 0 0
+}
+
+.leaflet-measure-area .tasks li:last-child,
+.leaflet-measure-area-resultpopup .tasks li:last-child {
+	margin-right: 0
+}
+
+.leaflet-measure-area .coorddivider,
+.leaflet-measure-area-resultpopup .coorddivider {
+	color: #999
+}
+
+.leaflet-measure-area {
+	max-width: 280px;
+	background: #fff
+}
+
+.leaflet-measure-area .leaflet-measure-area-toggle,
+.leaflet-measure-area .leaflet-measure-area-toggle:hover {
+	background-size: 14px 14px;
+	background-image: url(assets/rulers.png);
+	border: 0;
+	border-radius: 4px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden
+}
+
+.leaflet-touch .leaflet-measure-area .leaflet-measure-area-toggle,
+.leaflet-touch .leaflet-measure-area .leaflet-measure-area-toggle:hover {
+	border-radius: 2px
+}
+
+.leaflet-retina .leaflet-measure-area .leaflet-measure-area-toggle,
+.leaflet-retina .leaflet-measure-area .leaflet-measure-area-toggle:hover {
+	background-image: url(assets/rulers_@2X.png)
+}
+
+.leaflet-touch .leaflet-measure-area .leaflet-measure-area-toggle,
+.leaflet-touch .leaflet-measure-area .leaflet-measure-area-toggle:hover {
+	background-size: 16px 16px
+}
+
+.leaflet-measure-area .startprompt h6 {
+	font-weight: 700;
+	font-size: 13px;
+}
+
+.leaflet-measure-area .startprompt hr {
+	margin-top: 2px;
+	margin-bottom: 0px;
+}
+
+.leaflet-measure-area .startprompt .tasks {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: 0;
+	text-align: left
+}
+
+.leaflet-measure-area .leaflet-measure-area-interaction {
+	padding: 10px 12px
+}
+
+.leaflet-measure-area .results .group {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px dotted #eaeaea
+}
+
+.leaflet-measure-area .results .group:first-child {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: 0
+}
+
+.leaflet-measure-area .results .heading {
+	margin-right: 5px;
+	color: #999
+}
+
+.leaflet-measure-area a.start {
+	display: inline;
+	width: auto;
+	height: auto;
+	padding-left: 20px;
+	margin-right: 4px;
+	line-height: 1em;
+	border: 0;
+	text-align: left;
+	background-image: url("assets/plus.png");
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	background-size: 12px 12px;
+	color: #5e66cc;
+	text-decoration: none
+}
+
+.leaflet-measure-area a.start,
+.leaflet-measure-area a.start:hover {
+	background-color: transparent
+}
+
+.leaflet-retina .leaflet-measure-area a.start {
+	background-image: url("assets/start_@2X.png")
+}
+
+.leaflet-measure-area a.start:hover {
+	opacity: .5;
+	text-decoration: none
+}
+
+.leaflet-measure-area a.cancel {
+	display: inline;
+	width: auto;
+	height: auto;
+	padding-left: 20px;
+	margin-right: 4px;
+	line-height: 1em;
+	border: 0;
+	text-align: left;
+	background-image: url("assets/cancel.png");
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	background-size: 12px 12px;
+	color: #5e66cc;
+	text-decoration: none
+}
+
+.leaflet-measure-area a.cancel,
+.leaflet-measure-area a.cancel:hover {
+	background-color: transparent
+}
+
+.leaflet-retina .leaflet-measure-area a.cancel {
+	background-image: url("assets/cancel_@2X.png")
+}
+
+.leaflet-measure-area a.cancel:hover {
+	opacity: .5;
+	text-decoration: none
+}
+
+.leaflet-measure-area a.finish {
+	display: inline;
+	width: auto;
+	height: auto;
+	padding-left: 20px;
+	margin-right: 4px;
+	line-height: 1em;
+	border: 0;
+	text-align: left;
+	background-image: url("assets/check.png");
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	background-size: 12px 12px;
+	color: #5e66cc;
+	text-decoration: none
+}
+
+.leaflet-measure-area a.finish,
+.leaflet-measure-area a.finish:hover {
+	background-color: transparent
+}
+
+.leaflet-retina .leaflet-measure-area a.finish {
+	background-image: url("assets/check_@2X.png")
+}
+
+.leaflet-measure-area a.finish:hover {
+	opacity: .5;
+	text-decoration: none
+}
+
+.leaflet-measure-area-resultpopup a.zoomto {
+	display: inline;
+	width: auto;
+	height: auto;
+	padding-left: 20px;
+	margin-right: 4px;
+	line-height: 1em;
+	border: 0;
+	text-align: left;
+	background-image: url("assets/focus.png");
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	background-size: 12px 12px;
+	color: #5e66cc;
+	text-decoration: none
+}
+
+.leaflet-measure-area-resultpopup a.zoomto,
+.leaflet-measure-area-resultpopup a.zoomto:hover {
+	background-color: transparent
+}
+
+.leaflet-retina .leaflet-measure-area-resultpopup a.zoomto {
+	background-image: url("assets/focus_@2X.png")
+}
+
+.leaflet-measure-area-resultpopup a.zoomto:hover {
+	opacity: .5;
+	text-decoration: none
+}
+
+.leaflet-measure-area-resultpopup a.deletemarkup {
+	display: inline;
+	width: auto;
+	height: auto;
+	padding-left: 20px;
+	margin-right: 4px;
+	line-height: 1em;
+	border: 0;
+	text-align: left;
+	background-image: url("assets/trash.png");
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	background-size: 12px 12px;
+	color: #5e66cc;
+	text-decoration: none
+}
+
+.leaflet-measure-area-resultpopup a.deletemarkup,
+.leaflet-measure-area-resultpopup a.deletemarkup:hover {
+	background-color: transparent
+}
+
+.leaflet-retina .leaflet-measure-area-resultpopup a.deletemarkup {
+	background-image: url("assets/trash_@2X.png")
+}
+
+.leaflet-measure-area-resultpopup a.deletemarkup:hover {
+	opacity: .5;
+	text-decoration: none
+}
+
+.js-area-measurement,
+.js-linear-measurement {
+	font-size: 12px;
+}

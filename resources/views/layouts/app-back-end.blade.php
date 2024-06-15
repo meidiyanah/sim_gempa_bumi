@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <link rel="icon" type="image/png" href="{{ asset('/images/logo.png') }}">
-    <title>SIMULASI JANGKAUAN GEMPA BUMI</title><!--SIJAPAI-->
+    <title>SIMULATOR JANGKAUAN GEMPA BUMI</title><!--SIJAPAI-->
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/sb-admin2/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -83,16 +83,19 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{asset('assets/sb-admin2/img/undraw_profile.svg')}}">
+                                @if(Auth::user()->avatar && Auth::user()->avatar != null)
+                                    <img class="img-profile rounded-circle" src="{{asset('images/avatars/'.Auth::user()->id.'/'.Auth::user()->avatar)}}">
+                                @else
+                                    <img class="img-profile rounded-circle" src="{{asset('assets/sb-admin2/img/undraw_profile.svg')}}">
+                                @endif
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{route('profile.index')}}">
+                                <!-- <a class="dropdown-item" href="{{route('profile.index')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profil
-                                </a>
+                                </a> -->
                                 <a class="dropdown-item" href="{{route('password.index')}}">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Ganti Password
@@ -193,6 +196,9 @@
     <!-- SELECT 2 -->
     <script type="text/javascript" src="{{ asset('/assets/select2/dist/js/select2.min.js') }}"></script>
 
+    <!-- Page level plugins -->
+    <script src="{{ asset('assets/sb-admin2/vendor/chart.js/Chart.min.js') }}"></script>
+
     <script>
         $(document).ready(function() {
             $("select.select2").select2({
@@ -204,6 +210,8 @@
         });
     </script>
     @yield('script')
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('assets/chart/chart-simulasi.js') }}"></script>
 </body>
 
 </html>

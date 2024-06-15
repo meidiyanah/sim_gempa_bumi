@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if(isset(Auth::user()->id)){
-        if(Auth::user()->jenis_user == 1){//Admin
+        // if(Auth::user()->jenis_user == 1){//Admin
             return redirect('/home');
-        }else{//User
-            return view('welcome');
-        }
+        // }else{//User
+            // return view('welcome');
+        // }
     }else{
         return view('welcome');
     }
@@ -31,7 +31,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //SIMULASI
-Route::get('/simulasi', [App\Http\Controllers\SimulasiController::class, 'index'])->name('simulasi');
+Route::get("/simulasi", [App\Http\Controllers\SimulasiController::class, 'index'])->name('simulasi');
+Route::post("/simpan-simulasi", [App\Http\Controllers\SimulasiController::class, 'store'])->name('simulasi.store');
+Route::post("/hapus-simulasi", [App\Http\Controllers\SimulasiController::class, 'destroy'])->name('simulasi.destroy');
+
+//MASTER USERS
+Route::resource("data-user", "App\Http\Controllers\UsersController");
+Route::post("data-user/{id}/update", [App\Http\Controllers\UsersController::class, 'update'])->name('data-user.update');
 
 //MASTER PETA
 Route::resource("data-peta", "App\Http\Controllers\PetaController");

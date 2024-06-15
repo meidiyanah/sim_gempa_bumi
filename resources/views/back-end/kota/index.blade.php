@@ -44,9 +44,9 @@
                                     @endphp
                                     <a href="{{route('data-kota.show', $enkripsi_id)}}" class="btn btn-info btn-circle btn-sm" title="Detail"><i class="fa fa-list"></i></a>
                                     <a class="btn btn-warning btn-circle btn-sm text-white" href="{{route('data-kota.edit', $enkripsi_id)}}"  title="Edit"><i class="fa fa-edit"></i></a>
-                                    <button type="button" onclick="hapusData('{{$enkripsi_id}}')" class="btn btn-danger btn-circle btn-sm text-white" title="Hapus"><i class="fa fa-trash"></i></button>
+                                    <button type="button" onclick="hapusData('{{$kt->id}}')" class="btn btn-danger btn-circle btn-sm text-white" title="Hapus"><i class="fa fa-trash"></i></button>
 
-                                    <form id="form-hapus-{{$enkripsi_id}}" class="d-inline" action="{{route('data-kota.destroy', $enkripsi_id)}}" method="POST">
+                                    <form id="form-hapus-{{$kt->id}}" class="d-inline" action="{{route('data-kota.destroy', $enkripsi_id)}}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="DELETE">
                                     </form>
