@@ -307,17 +307,22 @@ var DataSimulasi = new class dataSimulasi {
             type: "POST",
             data: prop,
             success: function(result) {
+                console.log(result);
                 if(prop.id && prop.id != null){//EDIT
-                    alert("Proses Ubah Simulasi "+result);
+                    alert("Proses Ubah Simulasi "+result[0]);
                 }else{//TAMBAH        
-                    alert("Proses Simpan Simulasi "+result);
+                    alert("Proses Simpan Simulasi "+result[0]);
+                    if(result.length == 2){
+                        entity.properties.id = result[1];
+                    }
                 }
             },
             error: function(result) {
+                console.log(result);
                 if(prop.id && prop.id != null){//EDIT
-                    alert("Proses Ubah Simulasi "+result+", Terjadi kesalahan saat mengubah data simulasi");
+                    alert("Proses Ubah Simulasi "+result[0]+", Terjadi kesalahan saat mengubah data simulasi");
                 }else{//TAMBAH
-                    alert("Proses Simpan Simulasi "+result+", Terjadi kesalahan saat menyimpan data simulasi");
+                    alert("Proses Simpan Simulasi "+result[0]+", Terjadi kesalahan saat menyimpan data simulasi");
                 }
             }              
         });

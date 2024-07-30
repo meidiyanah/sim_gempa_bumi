@@ -74,7 +74,7 @@
     function hapusData(id){
         Swal.fire({
             title: 'Hapus Data',
-            text: "apakah anda yakin untuk menghapus data kota ini?",
+            text: "apakah anda yakin untuk menghapus data pengguna ini?",
             icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

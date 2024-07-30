@@ -11,6 +11,16 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        @if(isset($message))
+                            <div class="row content-center">
+                            <div class="col-sm-10 col-md-10 col-lg-10 pl-0">
+                                <div class="alert alert-danger" role="alert">
+                                {!! $message !!}
+                                </div>
+                            </div>
+                            </div>
+                        @endif
+
                         <div class="row mb-3">
                             <div class="col-md-1"></div>
                             <label for="email" class="col-md-3 col-form-label">{{ __('Email Address') }}</label>

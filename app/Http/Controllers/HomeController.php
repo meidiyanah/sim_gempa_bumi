@@ -36,6 +36,7 @@ class HomeController extends Controller
             $dataSimulasi = Simulasi::orderBy('id', 'ASC')->count();
             $dataPeta = Peta::orderBy('id', 'ASC')->count();
             $dataKota = Kota::orderBy('id', 'ASC')->count();
+            $dataPengguna = User::whereNull('deleted_at')->orderBy('id', 'ASC')->count();
 
             $dataSimulasiMonth = 0;
             $dataSimulasiYear = 0;
@@ -43,6 +44,7 @@ class HomeController extends Controller
             //KOSONG
             $dataPeta = 0;
             $dataKota = 0;
+            $dataPengguna = 0;
             $dataSimulasi = Simulasi::where('id_user', Auth::user()->id)->orderBy('id', 'ASC')->count();
             //datasimulasi bulan ini
             $dataSimulasiMonth = Simulasi::whereMonth('created_at', '=', date('m'))->where('id_user', Auth::user()->id)->orderBy('id', 'ASC')->count();
@@ -61,7 +63,7 @@ class HomeController extends Controller
             $dataMonth[$i] = $count;
         }
 
-        return view('back-end.dashboard', compact('dataSimulasi', 'dataPeta', 'dataKota', 'dataMonth', 'dataSimulasiMonth', 'dataSimulasiYear'));
+        return view('back-end.dashboard', compact('dataSimulasi', 'dataPeta', 'dataKota', 'dataMonth', 'dataSimulasiMonth', 'dataSimulasiYear', 'dataPengguna'));
     }
 
     public function profile()
@@ -85,10 +87,10 @@ class HomeController extends Controller
 
         $new_user = [];
         $new_user['name'] = $request->get('name');
-        $new_user['jenis_user'] = $request->get('jenis_user');
+        // $new_user['jenis_user'] = $request->get('jenis_user');
         $new_user['email'] = $request->get('email');
         $new_user['password'] = Hash::make($request->get('password'));
-        $new_user['status'] = $request->get('status');
+        // $new_user['status'] = $request->get('status');
 
         $upd = User::where('id', $id)->update($new_user);
 

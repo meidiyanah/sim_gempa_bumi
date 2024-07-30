@@ -36,7 +36,7 @@
               </div>
             </div>
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="jenis_user">Jenis Pengguna</label>
               <div class="col-sm-6">
                 <select name="jenis_user" id="jenis_user" style="width: 100%;" class="form-control select2 {{$errors->first('jenis_user') ? "is-invalid" : ""}}" data-placeholder="Pilih Jenis Pengguna" required>
@@ -49,7 +49,7 @@
               <div class="invalid-feedback">
                 {{$errors->first('jenis_user')}}
               </div>
-            </div>
+            </div> -->
 
             <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="email">E-mail</label>
@@ -100,7 +100,7 @@
               </div>
             </div>
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label class="col-sm-3 col-form-label" for="status">Status</label>
               <div class="col-sm-6">
                 <select name="status" id="status" style="width: 100%;" class="form-control {{$errors->first('status') ? "is-invalid" : ""}}" data-placeholder="Pilih Status" required>
@@ -112,7 +112,7 @@
               <div class="invalid-feedback">
                 {{$errors->first('status')}}
               </div>
-            </div>
+            </div> -->
 
             <hr class="my-4">
             <div class="row">

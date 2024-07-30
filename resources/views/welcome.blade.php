@@ -105,7 +105,7 @@
 
                     <div class="col-lg-4 col-md-6 mb-2 col-sm-6">
                         <div class="card border-0 shadow-sm bg-secondary text-dark">
-                            <a href="{{ url('/user-manual') }}">
+                            <a href="{{ asset('/user-manual/USER MANUAL.pdf') }}" download>
                                 <div class="card-body">
                                     <div class="media">
                                         <div class="media-body">

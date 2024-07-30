@@ -40,7 +40,7 @@ class SimulasiController extends Controller
             $dataSimulasi = Simulasi::where('id_user', Auth::user()->id)->orderBy('id', 'ASC')->get();
         }
 
-        $dataUsers = User::where('jenis_user', 2)->orderBy('name', 'ASC')->get();
+        $dataUsers = User::where('jenis_user', 2)->whereNull('deleted_at')->orderBy('name', 'ASC')->get();
 
         return view('simulasi.index', compact('dataPeta', 'dataKota', 'dataSimulasi', 'dataUsers'));
     }
@@ -60,8 +60,9 @@ class SimulasiController extends Controller
                 'id_point' => $req->id_point,
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
+            $idnya = $req->id;
         }else{
-            $simpan = Simulasi::insert([
+            $simpan = Simulasi::insertGetId([
                 'id_user' => $req->id_user,
                 'nama' => $req->nama,
                 'koorx' => $req->longitude,
@@ -71,13 +72,14 @@ class SimulasiController extends Controller
                 'id_point' => $req->id_point,
                 'created_at' => date('Y-m-d H:i:s')
             ]);
+            $idnya = $simpan;
         }
 
         if($simpan){
-            echo "Berhasil";
+            return response()->json(['Berhasil', $idnya]);
             die();
         }else{
-            echo "Gagal";
+            return response()->json(['Gagal']);
             die();
         }
         

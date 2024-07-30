@@ -58,10 +58,12 @@
             </tr>
         </table>
     </div>
+    @if(Auth::user()->jenis_user == 2)
     <div class="footerInfo">
         <div class="buttonInfo" onclick="DataSimulasi.editSimulasi()">Ubah data</div>
         <div class="buttonInfo buttonInfo-error" style="float: right;" onclick="DataSimulasi.hapusSimulasi()">Hapus</div>
     </div>
+    @endif
 </div>
 
 <div id="menu-edit-simulasi" style="display: none;" class="menu_info">
