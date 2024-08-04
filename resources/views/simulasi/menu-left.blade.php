@@ -31,7 +31,7 @@
                     <div class="form-group col-md-5">
                         <label class="text-white">Kedalaman</label>
                         <div class="input-group">
-                            <input type="number" id="kedalaman_simulasi" width="100%" class="form-control" title="Kedalaman" placeholder="0" aria-label="Kedalaman" aria-describedby="basic-addon3">
+                            <input type="number" id="kedalaman_simulasi" width="100%" min="0.01" step="0.01" class="form-control" title="Kedalaman" placeholder="0" aria-label="Kedalaman" aria-describedby="basic-addon3">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon3">Km</span>
                             </div>
@@ -40,7 +40,7 @@
                     <div class="form-group col-md-5">
                         <label class="text-white">Ukuran (Magnitudo)</label>
                         <div class="input-group">
-                            <input type="number" id="ukuran_simulasi" width="100%" class="form-control" title="Ukuran" placeholder="0" aria-label="Ukuran" aria-describedby="basic-addon2">
+                            <input type="number" id="ukuran_simulasi" min="0.1" max="10" step="0.1" width="100%" class="form-control" title="Ukuran" placeholder="0" aria-label="Ukuran" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">Magnitudo</span>
                             </div>

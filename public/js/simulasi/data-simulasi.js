@@ -73,6 +73,25 @@ var DataSimulasi = new class dataSimulasi {
         var kedalaman = $('#kedalaman_simulasi').val();
         var ukuran = $('#ukuran_simulasi').val();
 
+        console.log(parseFloat(ukuran), parseFloat(ukuran) < 0.1);
+        console.log(parseFloat(ukuran) > 10);
+        //Magnitudo antara 0.1 s/d 10 valid, selain itu tidak valid
+        if(parseFloat(ukuran) < 0.1){
+            alert("Mohon isi ukuran dengan benar, ukuran magnitudo tidak boleh lebih kecil dari 0.1");
+            $('#ukuran_simulasi').val('0');
+            $('#menu-add-simulasi').show();
+            $('#ukuran_simulasi').focus();
+			return;
+        }
+
+        if(parseFloat(ukuran) > 10){
+            alert("Mohon isi ukuran dengan benar, ukuran magnitudo tidak boleh lebih besar dari 10");
+            $('#ukuran_simulasi').val('0');
+            $('#menu-add-simulasi').show();
+            $('#ukuran_simulasi').focus();
+			return;
+        }
+            
         var prop = {
             id_point: id_point,
             nama: nama,
@@ -475,9 +494,24 @@ class objectSimulasi{
         var terparah = parseFloat(this.properties.radiusTerparah) / 1000;
         var menengah = parseFloat(this.properties.radiusMenengah) / 1000;
         var aman = parseFloat(this.properties.radiusAman) / 1000;
-        $('#radiusTerparah_simulasi_info').html(parseFloat(terparah).toFixed(2)+" km");
-        $('#radiusMenengah_simulasi_info').html(parseFloat(menengah).toFixed(2)+" km");
-        $('#radiusAman_simulasi_info').html(parseFloat(aman).toFixed(2)+" km");
+
+        if(parseFloat(terparah) < 0.1){
+            $('#radiusTerparah_simulasi_info').html(parseFloat(this.properties.radiusTerparah).toFixed(2)+" m");    
+        }else{
+            $('#radiusTerparah_simulasi_info').html(parseFloat(terparah).toFixed(2)+" km");
+        }
+
+        if(parseFloat(menengah) < 0.1){
+            $('#radiusMenengah_simulasi_info').html(parseFloat(this.properties.radiusMenengah).toFixed(2)+" m");    
+        }else{
+            $('#radiusMenengah_simulasi_info').html(parseFloat(menengah).toFixed(2)+" km");
+        }
+
+        if(parseFloat(aman) < 0.1){
+            $('#radiusAman_simulasi_info').html(parseFloat(this.properties.radiusAman).toFixed(2)+" m");    
+        }else{
+            $('#radiusAman_simulasi_info').html(parseFloat(aman).toFixed(2)+" km");
+        }
 
         openMenu('menu-info-simulasi');
     }
