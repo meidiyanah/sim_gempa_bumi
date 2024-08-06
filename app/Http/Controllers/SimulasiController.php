@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,9 +41,36 @@ class SimulasiController extends Controller
             $dataSimulasi = Simulasi::where('id_user', Auth::user()->id)->orderBy('id', 'ASC')->get();
         }
 
+        //SUMBER : BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)
+        $referensi = [];
+        $data = simplexml_load_file("https://data.bmkg.go.id/DataMKG/TEWS/gempaterkini.xml");//15 DATA GEMPA TERKINI
+        if($data){
+            $count = 0;
+            foreach($data->gempa as $g) {
+                $tanggal = date('d-m-Y', strtotime($g->DateTime));
+                $jam = date('H:i:s', strtotime(explode(' ', $g->Jam)[0]));
+                $koordinat = explode(',', $g->point->coordinates);
+                $wilayah = explode(' ', $g->Wilayah);
+
+                $obj = [
+                    'id' => $count+1,
+                    'id_point' => 'referensi_'.($count+1),
+                    'tanggal' => $tanggal.' '.$jam,
+                    'koorx' => $koordinat[1],
+                    'koory' => $koordinat[0],
+                    'ukuran' => (float)$g->Magnitude,
+                    'kedalaman' => (float)$g->Kedalaman,
+                    'nama' => $wilayah[count($wilayah)-1],
+                    'referensi' => true
+                ];
+                array_push($referensi, $obj);
+                $count++;
+            }
+        }
+
         $dataUsers = User::where('jenis_user', 2)->whereNull('deleted_at')->orderBy('name', 'ASC')->get();
 
-        return view('simulasi.index', compact('dataPeta', 'dataKota', 'dataSimulasi', 'dataUsers'));
+        return view('simulasi.index', compact('dataPeta', 'dataKota', 'dataSimulasi', 'dataUsers', 'referensi'));
     }
     
     public function store(Request $req)

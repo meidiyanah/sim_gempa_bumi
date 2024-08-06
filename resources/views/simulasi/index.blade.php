@@ -76,6 +76,10 @@
     <script src="{{ asset('component/measurement/Leaflet.PolylineMeasure.js') }}"></script>
 
     <link rel="stylesheet" href="{{ asset('/assets/select2/dist/css/select2.min.css') }}" />
+
+    <!-- Esri Leaflet Geocoder -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"/>
+    <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
 </head>
 <body>
 <div class="header">
@@ -198,6 +202,11 @@
             $datasimulasi = json_encode($dataSimulasi);
             echo "dataSimulasis = ". $datasimulasi . ";\n";
         }
+
+        if(isset($referensi) && count($referensi) > 0){
+            $datareferensi = json_encode($referensi);
+            echo "dataReferensi = ". $datareferensi . ";\n";
+        }
     @endphp
 
     $(document).ready(function(){
@@ -263,9 +272,13 @@
         @endif
 
         for (const [i, data] of dataSimulasis.entries()) {
-            console.log(data);
             var add = DataSimulasi.addObject(data);
             add.hideObject();
+        }
+
+        for (const [k, datas] of dataReferensi.entries()) {
+            var addref = DataSimulasi.addObject(datas);
+            addref.hideObject();
         }
 
         $("select.select2").select2({

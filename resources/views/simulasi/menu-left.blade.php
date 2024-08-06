@@ -8,9 +8,13 @@
         <div class="left-body" style="margin: 10px;">
             <div class="row-fluid">
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-5">
                         <label class="text-white">Nama</label>
                         <input type="text" id="nama_simulasi" class="form-control" title="Nama Simulasi">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label class="text-white">Daerah</label>
+                        <input type="text" id="daerah_simulasi" class="form-control" title="Daerah Simulasi" readonly>
                     </div>
                 </div>
                 <div class="form-row">

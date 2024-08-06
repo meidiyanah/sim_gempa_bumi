@@ -209,10 +209,10 @@ DataSimulasi.layerSimulasi.on("click", function(evt){
 
 function toggleSimulasi(type, id) {
     if (type === 'show') {
-        $(`#toggleSub_${id}`).html(`<i class="fa fa-caret-up" onclick="toggleSimulasi('hide', ${id})"></i>`);
+        $(`#toggleSub_${id}`).html(`<i class="fa fa-caret-up" onclick="toggleSimulasi('hide', '${id}')"></i>`);
         $(`#dataSimulasi_${id}`).show();
     } else {
-        $(`#toggleSub_${id}`).html(`<i class="fa fa-caret-down" onclick="toggleSimulasi('show', ${id})"></i>`);
+        $(`#toggleSub_${id}`).html(`<i class="fa fa-caret-down" onclick="toggleSimulasi('show', '${id}')"></i>`);
         $(`#dataSimulasi_${id}`).hide();
     }
 }
@@ -221,6 +221,42 @@ function daftarSimulasiAdmin() {
     document.getElementById("daftar_simulasi").innerHTML = "";
 
     var html = "";
+    //REFERENSI DATA
+    html += `<div class="card p-1 w-100 mb-2">
+                <div class="media-body">
+                    <div class="d-flex flex-row justify-content-between" id="data-referensi">
+                        <h8 class="mb-0 text-truncate" style="width: 100%;"><b>REFERENSI (BMKG)</b></h8>
+                        <span id="toggleSub_bmkg" style="margin-right: 5px;">
+                            <i class="fa fa-caret-down" onclick="toggleSimulasi('show', 'bmkg')"></i>
+                        </span>
+                    </div>
+                    <ul id="dataSimulasi_bmkg" style="font-size: 15px; display: none; margin-top: 10px;">`;
+
+    var referensi = DataSimulasi.getObject('referensi');
+    if(referensi.length > 0){
+        for (const [k, data] of referensi.entries()) {
+            var daerah = data.properties.nama.replace(/-/g, ' - ');
+            html += `<li class="d-flex justify-content-between" style="position: relative;">
+                        <span style="font-size: 12px;" class="mb-0 text-truncate" style="width: calc(100% - 40px);">`+daerah+`</span>
+                        <div class="d-flex flex-row-reverse" style="position: absolute; top: 0; right: 0;">
+                            <div class="custom-control custom-switch" style="margin-right: 10px;">
+                                <input type="checkbox" class="custom-control-input" id="checkSimulasi_`+data.properties.id_point+`" data-item="`+data.properties.id_point+`" onclick="DataSimulasi.toggleShow(this)">
+                                <label class="custom-control-label" for="checkSimulasi_`+data.properties.id_point+`">&nbsp;</label>
+                            </div>
+                        </div>
+                    </li>`;
+        }
+    }else{
+        html +=  `<li class="d-flex justify-content-between" style="position: relative;">
+                    <h8 class="mb-0 text-truncate" style="width: calc(100% - 40px); margin-left: 50px;">Data Kosong</h8>
+                    </li>`;
+    }
+
+    html += `</ul>
+        </div>
+    </div>`;
+
+    //DATA SIMULASI USER
     if(dataUsers.length > 0){
         for (const [i, user] of dataUsers.entries()) {
             html += `<div class="card p-1 w-100 mb-1">
@@ -265,7 +301,44 @@ function daftarSimulasi() {
     document.getElementById("daftar_simulasi").innerHTML = "";
 
     var html = '';
-    var allData = DataSimulasi.getObject();
+
+    //REFERENSI DATA
+    html += `<div class="card p-1 w-100 mb-2">
+                <div class="media-body">
+                    <div class="d-flex flex-row justify-content-between" id="data-referensi">
+                        <h8 class="mb-0 text-truncate" style="width: 100%;"><b>REFERENSI (BMKG)</b></h8>
+                        <span id="toggleSub_bmkg" style="margin-right: 5px;">
+                            <i class="fa fa-caret-down" onclick="toggleSimulasi('show', 'bmkg')"></i>
+                        </span>
+                    </div>
+                    <ul id="dataSimulasi_bmkg" style="font-size: 15px; display: none; margin-top: 10px;">`;
+
+    var referensi = DataSimulasi.getObject('referensi');
+    if(referensi.length > 0){
+        for (const [k, data] of referensi.entries()) {
+            var daerah = data.properties.nama.replace(/-/g, ' - ');
+            html += `<li class="d-flex justify-content-between" style="position: relative;">
+                        <span style="font-size: 12px;" class="mb-0 text-truncate" style="width: calc(100% - 40px);">`+daerah+`</span>
+                        <div class="d-flex flex-row-reverse" style="position: absolute; top: 0; right: 0;">
+                            <div class="custom-control custom-switch" style="margin-right: 10px;">
+                                <input type="checkbox" class="custom-control-input" id="checkSimulasi_`+data.properties.id_point+`" data-item="`+data.properties.id_point+`" onclick="DataSimulasi.toggleShow(this)">
+                                <label class="custom-control-label" for="checkSimulasi_`+data.properties.id_point+`">&nbsp;</label>
+                            </div>
+                        </div>
+                    </li>`;
+        }
+    }else{
+        html +=  `<li class="d-flex justify-content-between" style="position: relative;">
+                    <h8 class="mb-0 text-truncate" style="width: calc(100% - 40px); margin-left: 50px;">Data Kosong</h8>
+                    </li>`;
+    }
+
+    html += `</ul>
+        </div>
+    </div>`;
+
+    //DATA SIMULASI USER
+    var allData = DataSimulasi.getObject('simulasi');
     if(allData.length > 0){
         for (const [i, adata] of allData.entries()) {
             var checked = '';
@@ -302,4 +375,28 @@ function daftarSimulasi() {
                 </div>';
     }
     document.getElementById("daftar_simulasi").innerHTML = html;
+}
+
+function getCityName(lat, lon, status) {
+    var url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            var nama = '-';
+            if (data) {
+                if(data.display_name != ""){
+                    nama = data.display_name;
+                }
+            }
+
+            if(status == 'create'){
+                $('#daerah_simulasi').val(nama);
+            }else{
+                $('#daerah_simulasi_info').html(nama);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }

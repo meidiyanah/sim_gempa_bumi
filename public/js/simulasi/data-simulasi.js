@@ -9,8 +9,21 @@ var DataSimulasi = new class dataSimulasi {
         this.layerZoomMarking = L.featureGroup();//.addTo(map);
     }
 
-    getObject(){
-        return this.dataObject;
+    getObject(jenis = false){
+        if(jenis){
+            var referensi = (jenis == 'referensi') ? true:false;
+            let data = [];
+            if (this.dataObject) {
+                for (const key of this.dataObject) {
+                    if(key.properties.referensi === referensi){
+                        data.push(key);
+                    }
+                }
+            }
+            return data;
+        }else{
+            return this.dataObject;
+        }
     }
 
     getObjectById(i) {
@@ -29,7 +42,6 @@ var DataSimulasi = new class dataSimulasi {
         if (this.dataObject) {
             for (const key of this.dataObject) {
                 if (id_user) {
-                    console.log(key.properties.id_user, id_user);
                     if(key.properties.id_user == id_user){
                         data.push(key);
                     }
@@ -55,6 +67,8 @@ var DataSimulasi = new class dataSimulasi {
         const layer = evt.layer;
         let latlng = layer.getLatLng();
 
+        getCityName(latlng.lat, latlng.lng, 'create');
+
         $('#latitude_simulasi').val(latlng.lat);
         $('#longitude_simulasi').val(latlng.lng);
         $('#menu-add-simulasi').show();
@@ -73,8 +87,6 @@ var DataSimulasi = new class dataSimulasi {
         var kedalaman = $('#kedalaman_simulasi').val();
         var ukuran = $('#ukuran_simulasi').val();
 
-        console.log(parseFloat(ukuran), parseFloat(ukuran) < 0.1);
-        console.log(parseFloat(ukuran) > 10);
         //Magnitudo antara 0.1 s/d 10 valid, selain itu tidak valid
         if(parseFloat(ukuran) < 0.1){
             alert("Mohon isi ukuran dengan benar, ukuran magnitudo tidak boleh lebih kecil dari 0.1");
@@ -99,8 +111,12 @@ var DataSimulasi = new class dataSimulasi {
             longitude: longitude,
             kedalaman: kedalaman,
             ukuran: ukuran,
-            id_user: DataSimulasi.userAktif.id
+            id_user: DataSimulasi.userAktif.id,
+            referensi: false,
+            tanggal: false
         };
+
+        console.log(prop);
 
         var latlng = L.latLng(latitude, longitude);
 
@@ -178,6 +194,9 @@ var DataSimulasi = new class dataSimulasi {
         var longitude = data.koorx;
         var kedalaman = data.kedalaman;
         var ukuran = data.ukuran;
+        var referensi = (data.referensi) || false;
+        var user = (data.referensi) ? false:data.id_user;
+        var tanggal = (data.referensi) ? data.tanggal:false;
 
         var prop = {
             id: id,
@@ -187,7 +206,9 @@ var DataSimulasi = new class dataSimulasi {
             longitude: longitude,
             kedalaman: kedalaman,
             ukuran: ukuran,
-            id_user: data.id_user
+            id_user: user,
+            referensi: referensi,
+            tanggal: tanggal
         };
 
         if(data.nama_pengguna){
@@ -491,6 +512,8 @@ class objectSimulasi{
         $('#kedalaman_simulasi_info').html(this.properties.kedalaman);
         $('#ukuran_simulasi_info').html(this.properties.ukuran);
 
+        getCityName(this.properties.latitude, this.properties.longitude, 'info');
+
         var terparah = parseFloat(this.properties.radiusTerparah) / 1000;
         var menengah = parseFloat(this.properties.radiusMenengah) / 1000;
         var aman = parseFloat(this.properties.radiusAman) / 1000;
@@ -513,6 +536,18 @@ class objectSimulasi{
             $('#radiusAman_simulasi_info').html(parseFloat(aman).toFixed(2)+" km");
         }
 
+        if(this.properties.referensi){
+            $('#tanggal_gempa_info').html(this.properties.tanggal);
+            $('#btn-edit-delete').hide();
+            $('#sumber-data').show();
+            $('#tanggal-gempa').show();
+        }else{
+            $('#tanggal_gempa_info').html('-');
+            $('#btn-edit-delete').show();
+            $('#sumber-data').hide();
+            $('#tanggal-gempa').hide();
+        }
+
         openMenu('menu-info-simulasi');
     }
 
@@ -526,6 +561,11 @@ class objectSimulasi{
         $('#radiusTerparah_simulasi_info').html("");
         $('#radiusMenengah_simulasi_info').html("");
         $('#radiusAman_simulasi_info').html("");
+        $('#tanggal_gempa_info').html("");
+        $('#daerah_simulasi_info').html("");
+        $('#btn-edit-delete').show();
+        $('#sumber-data').hide();
+        $('#tanggal-gempa').hide();
     }
     
     edit(data) {

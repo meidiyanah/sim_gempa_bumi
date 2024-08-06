@@ -1,0 +1,186 @@
+{
+  "Infogempa": {
+    "gempa": [
+      {
+        "Tanggal": "05 Agu 2024",
+        "Jam": "19:44:03 WIB",
+        "DateTime": "2024-08-05T12:44:03+00:00",
+        "Coordinates": "-6.33,103.57",
+        "Lintang": "6.33 LS",
+        "Bujur": "103.57 BT",
+        "Magnitude": "5.3",
+        "Kedalaman": "10 km",
+        "Wilayah": "133 km BaratDaya PESISIRBARAT-LAMPUNG",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "03 Agu 2024",
+        "Jam": "12:32:58 WIB",
+        "DateTime": "2024-08-03T05:32:58+00:00",
+        "Coordinates": "-3.39,138.09",
+        "Lintang": "3.39 LS",
+        "Bujur": "138.09 BT",
+        "Magnitude": "5.0",
+        "Kedalaman": "100 km",
+        "Wilayah": "28 km TimurLaut PUNCAKJAYA-PAPUATENGAH",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "01 Agu 2024",
+        "Jam": "07:00:07 WIB",
+        "DateTime": "2024-08-01T00:00:07+00:00",
+        "Coordinates": "-0.11,123.29",
+        "Lintang": "0.11 LS",
+        "Bujur": "123.29 BT",
+        "Magnitude": "5.5",
+        "Kedalaman": "129 km",
+        "Wilayah": "73 km Tenggara BONEBOLANGO-GORONTALO",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "31 Jul 2024",
+        "Jam": "06:21:08 WIB",
+        "DateTime": "2024-07-30T23:21:08+00:00",
+        "Coordinates": "-6.60,129.88",
+        "Lintang": "6.60 LS",
+        "Bujur": "129.88 BT",
+        "Magnitude": "5.1",
+        "Kedalaman": "160 km",
+        "Wilayah": "219 km BaratLaut TANIMBAR",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "28 Jul 2024",
+        "Jam": "18:20:31 WIB",
+        "DateTime": "2024-07-28T11:20:31+00:00",
+        "Coordinates": "-6.31,130.20",
+        "Lintang": "6.31 LS",
+        "Bujur": "130.20 BT",
+        "Magnitude": "5.6",
+        "Kedalaman": "144 km",
+        "Wilayah": "221 km BaratLaut TANIMBAR",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "26 Jul 2024",
+        "Jam": "03:32:18 WIB",
+        "DateTime": "2024-07-25T20:32:18+00:00",
+        "Coordinates": "-7.60,128.71",
+        "Lintang": "7.60 LS",
+        "Bujur": "128.71 BT",
+        "Magnitude": "6.3",
+        "Kedalaman": "157 km",
+        "Wilayah": "119 km TimurLaut MALUKUBRTDAYA",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "26 Jul 2024",
+        "Jam": "00:11:41 WIB",
+        "DateTime": "2024-07-25T17:11:41+00:00",
+        "Coordinates": "-6.02,102.87",
+        "Lintang": "6.02 LS",
+        "Bujur": "102.87 BT",
+        "Magnitude": "5.2",
+        "Kedalaman": "10 km",
+        "Wilayah": "100 km Tenggara ENGGANO-BENGKULU",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "24 Jul 2024",
+        "Jam": "19:42:52 WIB",
+        "DateTime": "2024-07-24T12:42:52+00:00",
+        "Coordinates": "-6.39,130.12",
+        "Lintang": "6.39 LS",
+        "Bujur": "130.12 BT",
+        "Magnitude": "5.4",
+        "Kedalaman": "181 km",
+        "Wilayah": "219 km BaratLaut TANIMBAR",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "24 Jul 2024",
+        "Jam": "15:09:04 WIB",
+        "DateTime": "2024-07-24T08:09:04+00:00",
+        "Coordinates": "-10.10,123.73",
+        "Lintang": "10.10 LS",
+        "Bujur": "123.73 BT",
+        "Magnitude": "5.4",
+        "Kedalaman": "32 km",
+        "Wilayah": "16 km TimurLaut KUPANG-NTT",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "24 Jul 2024",
+        "Jam": "07:22:09 WIB",
+        "DateTime": "2024-07-24T00:22:09+00:00",
+        "Coordinates": "-2.86,139.38",
+        "Lintang": "2.86 LS",
+        "Bujur": "139.38 BT",
+        "Magnitude": "5.3",
+        "Kedalaman": "26 km",
+        "Wilayah": "96 km TimurLaut KOBAGMA-PAPUAPGNGN",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "23 Jul 2024",
+        "Jam": "10:10:12 WIB",
+        "DateTime": "2024-07-23T03:10:12+00:00",
+        "Coordinates": "-1.69,99.57",
+        "Lintang": "1.69 LS",
+        "Bujur": "99.57 BT",
+        "Magnitude": "5.0",
+        "Kedalaman": "10 km",
+        "Wilayah": "36 km TimurLaut KEP-MENTAWAI-SUMBAR",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "22 Jul 2024",
+        "Jam": "21:47:17 WIB",
+        "DateTime": "2024-07-22T14:47:17+00:00",
+        "Coordinates": "-5.24,131.15",
+        "Lintang": "5.24 LS",
+        "Bujur": "131.15 BT",
+        "Magnitude": "5.7",
+        "Kedalaman": "98 km",
+        "Wilayah": "182 km BaratLaut MALUKUTENGGARA",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "20 Jul 2024",
+        "Jam": "19:05:04 WIB",
+        "DateTime": "2024-07-20T12:05:04+00:00",
+        "Coordinates": "0.10,96.38",
+        "Lintang": "0.10 LU",
+        "Bujur": "96.38 BT",
+        "Magnitude": "5.7",
+        "Kedalaman": "13 km",
+        "Wilayah": "153 km BaratDaya NIASBARAT-SUMUT",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "18 Jul 2024",
+        "Jam": "22:01:23 WIB",
+        "DateTime": "2024-07-18T15:01:23+00:00",
+        "Coordinates": "-5.20,100.98",
+        "Lintang": "5.20 LS",
+        "Bujur": "100.98 BT",
+        "Magnitude": "5.7",
+        "Kedalaman": "10 km",
+        "Wilayah": "144 km BaratLaut ENGGANO-BENGKULU",
+        "Potensi": "Tidak berpotensi tsunami"
+      },
+      {
+        "Tanggal": "17 Jul 2024",
+        "Jam": "06:39:32 WIB",
+        "DateTime": "2024-07-16T23:39:32+00:00",
+        "Coordinates": "1.30,126.12",
+        "Lintang": "1.30 LU",
+        "Bujur": "126.12 BT",
+        "Magnitude": "5.6",
+        "Kedalaman": "10 km",
+        "Wilayah": "111 km Tenggara BITUNG-SULUT",
+        "Potensi": "Tidak berpotensi tsunami"
+      }
+    ]
+  }
+}

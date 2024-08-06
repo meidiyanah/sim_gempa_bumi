@@ -12,6 +12,12 @@
     </div>
     <div class="informasi">
         <div class="label1">
+            <div class="labelInfo text-white">Daerah</div>
+            <div class="Info text-white">: <span id="daerah_simulasi_info">-</span></div>
+        </div>
+    </div>
+    <div class="informasi">
+        <div class="label1">
             <div class="labelInfo text-white">Latitude</div>
             <div class="Info text-white">: <span id="latitude_simulasi_info">-</span></div>
         </div>
@@ -25,13 +31,25 @@
     <div class="informasi">
         <div class="label1">
             <div class="labelInfo text-white">Kedalaman</div>
-            <div class="Info text-white">: <span id="kedalaman_simulasi_info">-</span></div>
+            <div class="Info text-white">: <span id="kedalaman_simulasi_info">-</span> km</div>
         </div>
     </div>
     <div class="informasi">
         <div class="label1">
             <div class="labelInfo text-white">Ukuran (Magnitudo)</div>
-            <div class="Info text-white">: <span id="ukuran_simulasi_info">-</span></div>
+            <div class="Info text-white">: <span id="ukuran_simulasi_info">-</span> M</div>
+        </div>
+    </div>
+    <div class="informasi" id="tanggal-gempa" style="display: none;">
+        <div class="label1">
+            <div class="labelInfo text-white">Tanggal</div>
+            <div class="Info text-white">: <span id="tanggal_gempa_info">-</span></div>
+        </div>
+    </div>
+    <div class="informasi" id="sumber-data" style="display: none;">
+        <div class="label1">
+            <div class="labelInfo text-white">Sumber</div>
+            <div class="Info text-white">: BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)</div>
         </div>
     </div>
     <div class="informasi">
@@ -59,7 +77,7 @@
         </table>
     </div>
     @if(Auth::user()->jenis_user == 2)
-    <div class="footerInfo">
+    <div class="footerInfo" id="btn-edit-delete">
         <div class="buttonInfo" onclick="DataSimulasi.editSimulasi()">Ubah data</div>
         <div class="buttonInfo buttonInfo-error" style="float: right;" onclick="DataSimulasi.hapusSimulasi()">Hapus</div>
     </div>
